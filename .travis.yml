@@ -3,3 +3,9 @@ node_js:
 - node
 script:
   - npm install
+  - sonar-scanner
+addons:
+  sonarcloud:
+    organization: "alu0100972016-github"
+    token:
+      secure: 3e214bb2ad261dd7812ab02bb9c2f0d61d288b43
