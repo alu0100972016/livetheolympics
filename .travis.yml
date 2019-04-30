@@ -9,3 +9,10 @@ addons:
     organization: "alu0100972016-github"
     token:
       secure: 3e214bb2ad261dd7812ab02bb9c2f0d61d288b43
+deploy:
+  provider: heroku
+  api_key:
+    secure: 97a4fe25-4443-4aa7-99e4-1a3647f70ba7
+  app: livetheolympics
+  on:
+    repo: alu0100972016/livetheolympics
