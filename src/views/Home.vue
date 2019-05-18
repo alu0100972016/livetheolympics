@@ -1,13 +1,13 @@
 <template>
-  <HelloWorld />
+  <TwitterTimeline/>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import TwitterTimeline from '../components/TwitterTimeline.vue'
 
   export default {
     components: {
-      HelloWorld
+      TwitterTimeline
     }
   }
 </script>

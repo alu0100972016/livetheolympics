@@ -16,23 +16,23 @@
     </v-toolbar>
 
     <v-content>
-      <HelloWorld/>
+
+        <router-view/>
+    </v-content>
+    
+    <v-content>
+      <BottomNavigation/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import BottomNavigation from './components/BottomNavigation.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+    BottomNavigation
   }
 }
 </script>
+
