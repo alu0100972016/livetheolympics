@@ -1,79 +1,12 @@
 <template>
-  <v-container>
-    <v-content>
-      <div class="about">
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>This is an about page</h1>
-        <h1>Fin</h1>
-      </div>
-    </v-content>
+    <v-container align-content-center>
+      <v-layout justify-space-around row wrap>
+        <v-flex lg5>
+          <iframe id="player" type="text/html" width="720" height="405"
+          src="https://www.youtube.com/embed/?list=olympic&listType=user_uploads"
+          frameborder="0" allowfullscreen></iframe>
+        </v-flex>
+      </v-layout>
   </v-container>
 </template>
 
-<script>
-import BottomNavigation from '../components/BottomNavigation.vue'
-
-export default {
-  components: {
-    BottomNavigation
-  }
-}
-</script>

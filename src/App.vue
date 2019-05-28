@@ -16,7 +16,6 @@
     </v-toolbar>
 
     <v-content>
-
         <router-view/>
     </v-content>
     

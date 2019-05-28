@@ -10,6 +10,11 @@
         <span>Favorites</span>
         <v-icon>favorite</v-icon>
       </v-btn>
+
+      <v-btn to="/sports" color="teal" flat value="sports">
+        <span>Sports</span>
+        <v-icon>directions_run</v-icon>
+      </v-btn>
     </v-bottom-nav>
   </v-container>
 </template>
