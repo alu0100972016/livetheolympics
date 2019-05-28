@@ -1,14 +1,10 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
-import Sports from "@/views/Sports.vue";
+import Home from "./views/Home.vue";
+import About from "./views/About.vue";
+import Sports from "./views/Sports.vue";
 
 Vue.use(Router);
-
-function loadView(view) {
-  return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`)
-}
 
 export default new Router({
   mode: "history",
@@ -25,7 +21,7 @@ export default new Router({
       component: About
     },
     {
-      path: "/sports/:sport_id",
+      path: "/sports",
       name: "sports",
       component: Sports
     }

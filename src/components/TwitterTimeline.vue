@@ -11,10 +11,11 @@
 </template>
 
 <script>
-import { async } from 'q';
 export default {
   async beforeMount(){
+    console.log('Antes');
     function loadTimeline() {
+      console.log('Entro');
       return (function(document, script, id) {
         console.log(script);
         var js, fjs = document.getElementsByTagName(script)[0],
