@@ -16,22 +16,21 @@
     </v-toolbar>
 
     <v-content>
-        <router-view/>
+      <router-view />
     </v-content>
-    
+
     <v-content>
-      <BottomNavigation/>
+      <BottomNavigation />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import BottomNavigation from './components/BottomNavigation.vue'
+import BottomNavigation from "./components/BottomNavigation.vue";
 
 export default {
   components: {
     BottomNavigation
   }
-}
+};
 </script>
-

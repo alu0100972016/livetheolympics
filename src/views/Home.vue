@@ -1,13 +1,13 @@
 <template>
-  <TwitterTimeline/>
+  <TwitterTimeline />
 </template>
 
 <script>
-  import TwitterTimeline from '../components/TwitterTimeline.vue'
+import TwitterTimeline from "../components/TwitterTimeline.vue";
 
-  export default {
-    components: {
-      TwitterTimeline
-    }
+export default {
+  components: {
+    TwitterTimeline
   }
+};
 </script>

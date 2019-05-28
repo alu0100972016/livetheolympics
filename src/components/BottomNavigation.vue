@@ -20,11 +20,11 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        bottomNav: 'recent'
-      }
-    }
+export default {
+  data() {
+    return {
+      bottomNav: "recent"
+    };
   }
+};
 </script>
