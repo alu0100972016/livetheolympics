@@ -32,7 +32,7 @@ export default {
   methods: {
     getVideos() {
       const axios = require("axios");
-      const APIKEY = "AIzaSyBp-VdESXHnnppX8l_YVLDYGj0T-whhSr0";
+      const APIKEY = "AIzaSyC9gTmYA4ies0KSkMhx9KQrmQTA7wVVMCM";
       const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&pageToken=${
         this.pageToken
       }&maxResults=5&order=viewCount&type=video&key=${APIKEY}`;
