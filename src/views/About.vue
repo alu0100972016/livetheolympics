@@ -3,6 +3,7 @@
     <v-layout justify-space-around row wrap>
       <v-flex lg5>
         <div v-for="video in videos" :key="video.id">
+          src: {{ video.src }}
           <iframe
             id="player"
             type="text/html"
@@ -22,23 +23,29 @@
 export default {
   data() {
     return {
-      videos: []
+      videos: [],
+      bottom: false,
+      pageToken: "",
+      viewCount: 0
     };
   },
   methods: {
-    async getVideos() {
+    getVideos() {
       const axios = require("axios");
-      var APIKEY = "AIzaSyC9gTmYA4ies0KSkMhx9KQrmQTA7wVVMCM";
-      var url =
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&maxResults=5&order=date&type=video&key=" +
-        APIKEY;
-      var response = await axios.get(url);
-      if (response.status === 200) {
-        this.videos = response.data.items.map(item => ({
-          id: item.id.videoId,
-          src: "https://www.youtube.com/embed/" + item.id.videoId
-        }));
-      }
+      const APIKEY = "AIzaSyBp-VdESXHnnppX8l_YVLDYGj0T-whhSr0";
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&pageToken=${
+        this.pageToken
+      }&maxResults=5&order=viewCount&type=video&key=${APIKEY}`;
+      return axios.get(url).then(response => {
+        if (response.status === 200) {
+          this.pageToken = response.data.nextPageToken;
+          this.viewCount++;
+          return response.data.items.map(item => ({
+            id: item.id.videoId,
+            src: "https://www.youtube.com/embed/" + item.id.videoId
+          }));
+        }
+      });
     },
 
     bottomVisible() {
@@ -50,7 +57,9 @@ export default {
     },
     addVideos() {
       if (this.bottomVisible()) {
-        this.videos.push(this.getVideos());
+        this.getVideos().then(videos => {
+          this.videos.push(...videos);
+        });
       }
     }
   },
@@ -62,7 +71,9 @@ export default {
     }
   },
   mounted() {
-    this.videos = this.getVideos();
+    this.getVideos().then(videos => {
+      this.videos.push(...videos);
+    });
   },
   created() {
     window.addEventListener("scroll", () => {
