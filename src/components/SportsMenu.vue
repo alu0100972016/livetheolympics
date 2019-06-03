@@ -1,13 +1,16 @@
 <template>
-  <div>
-    <span v-for="sport in sports" :key="sport">
-      <h2>{{ sport }}</h2>
-    </span>
-  </div>
+  <v-container align-content-center>
+    <v-layout justify-space-around row wrap>
+      <v-flex v-for="sport in sports" :key="sport.name">
+        <h2>{{ sport.name }}</h2>
+        <img :src="sport.img" />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import firebase from "firebase";
+import { firebaseDB } from "@/firebaseDB";
 export default {
   data() {
     return {
@@ -15,13 +18,14 @@ export default {
     };
   },
   mounted() {
-    const db = firebase.firestore();
-    db.collection("sports")
+    firebaseDB
+      .collection("sports")
+      .orderBy("name")
       .get()
       .then(querySnapshot => {
         this.sports = [];
         querySnapshot.forEach(doc => {
-          this.sports.push(doc.data().name);
+          this.sports.push(doc.data());
         });
       })
       .catch(() => {
