@@ -25,21 +25,19 @@ export default {
     return {
       videos: [],
       bottom: false,
-      pageToken: "",
-      viewCount: 0
+      pageToken: ""
     };
   },
   methods: {
     getVideos() {
       const axios = require("axios");
       const APIKEY = "AIzaSyC9gTmYA4ies0KSkMhx9KQrmQTA7wVVMCM";
-      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&pageToken=${
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCTl3QQTvqHFjurroKxexy2Q&pageToken=${
         this.pageToken
-      }&maxResults=5&order=viewCount&type=video&key=${APIKEY}`;
+      }&maxResults=5&order=date&type=video&key=${APIKEY}`;
       return axios.get(url).then(response => {
         if (response.status === 200) {
           this.pageToken = response.data.nextPageToken;
-          this.viewCount++;
           return response.data.items.map(item => ({
             id: item.id.videoId,
             src: "https://www.youtube.com/embed/" + item.id.videoId
