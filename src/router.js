@@ -1,8 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
-import About from "./views/About.vue";
+import News from "./views/News.vue";
+import Games from "./views/Games.vue";
 import Sports from "./views/Sports.vue";
+import Athletes from "./views/Athletes.vue";
 
 Vue.use(Router);
 
@@ -12,18 +13,28 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      name: "news",
+      component: News
     },
     {
-      path: "/about",
-      name: "about",
-      component: About
+      path: "/games",
+      name: "games",
+      component: Games
     },
     {
       path: "/sports",
       name: "sports",
       component: Sports
+    },
+    {
+      path: "/athletes/:sport",
+      name: "athletes",
+      component: Athletes
+    },
+    {
+      path: "/*",
+      name: "news",
+      component: News
     }
   ]
 });

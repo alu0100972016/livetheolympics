@@ -1,17 +1,17 @@
 <template>
   <v-container>
     <v-bottom-nav :active.sync="bottomNav" :value="true" fixed color="white">
-      <v-btn to="/" color="teal" flat value="recent">
-        <span>Recent</span>
-        <v-icon>history</v-icon>
+      <v-btn to="/" color="blue-grey darken-3" flat value="news">
+        <span>News</span>
+        <v-icon>explore</v-icon>
       </v-btn>
 
-      <v-btn to="/about" color="teal" flat value="favorites">
-        <span>Favorites</span>
-        <v-icon>favorite</v-icon>
+      <v-btn to="/games" color="blue-grey darken-3" flat value="games">
+        <span>The Games</span>
+        <v-icon>play_circle_filled</v-icon>
       </v-btn>
 
-      <v-btn to="/sports" color="teal" flat value="sports">
+      <v-btn to="/sports" color="blue-grey darken-3" flat value="sports">
         <span>Sports</span>
         <v-icon>directions_run</v-icon>
       </v-btn>
@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      bottomNav: "recent"
+      bottomNav: "news"
     };
   }
 };

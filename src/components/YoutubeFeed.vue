@@ -1,19 +1,17 @@
 <template>
   <v-container align-content-center>
     <v-layout justify-space-around row wrap>
-      <v-flex lg5>
-        <div v-for="video in videos" :key="video.id">
-          src: {{ video.src }}
+      <v-flex pa-1 xs12 sm6 v-for="video in videos" :key="video.id">
+        <v-card flat class="pa-1 text-xs-center">
           <iframe
+            :aspect-ratio="16 / 9"
             id="player"
             type="text/html"
-            width="720"
-            height="405"
             :src="video.src"
             frameborder="0"
             allowfullscreen
           ></iframe>
-        </div>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -31,10 +29,10 @@ export default {
   methods: {
     getVideos() {
       const axios = require("axios");
-      const APIKEY = "AIzaSyC9gTmYA4ies0KSkMhx9KQrmQTA7wVVMCM";
+      const APIKEY = "AIzaSyB-RVbhrV7FxLqwtSHF6VaBgW-U-cma5hk";
       const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCTl3QQTvqHFjurroKxexy2Q&pageToken=${
         this.pageToken
-      }&maxResults=5&order=date&type=video&key=${APIKEY}`;
+      }&maxResults=8&order=date&type=video&key=${APIKEY}`;
       return axios.get(url).then(response => {
         if (response.status === 200) {
           this.pageToken = response.data.nextPageToken;
@@ -81,3 +79,10 @@ export default {
   }
 };
 </script>
+
+<style>
+iframe {
+  width: 100%;
+  height: 100%;
+}
+</style>
