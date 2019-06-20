@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.649573f03be820f1e80e2a84c8fcc1ff.js"
+  "/precache-manifest.3738ca9e2ea31f08851dd2b4928b5cb0.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "livetheolympics"});

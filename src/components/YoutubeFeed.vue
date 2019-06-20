@@ -32,7 +32,7 @@ export default {
       const APIKEY = "AIzaSyB-RVbhrV7FxLqwtSHF6VaBgW-U-cma5hk";
       const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCTl3QQTvqHFjurroKxexy2Q&pageToken=${
         this.pageToken
-      }&maxResults=8&order=date&type=video&key=${APIKEY}`;
+      }&maxResults=10&order=date&type=video&key=${APIKEY}`;
       return axios.get(url).then(response => {
         if (response.status === 200) {
           this.pageToken = response.data.nextPageToken;
@@ -49,20 +49,13 @@ export default {
       const visible = document.documentElement.clientHeight;
       const pageHeight = document.documentElement.scrollHeight;
       const bottomOfPage = visible + scrollY >= pageHeight;
-      return bottomOfPage || pageHeight < visible;
+      return bottomOfPage || pageHeight <= visible;
     },
     addVideos() {
       if (this.bottomVisible()) {
         this.getVideos().then(videos => {
           this.videos.push(...videos);
         });
-      }
-    }
-  },
-  watch: {
-    bottom(bottom) {
-      if (bottom) {
-        this.addVideos();
       }
     }
   },
@@ -74,6 +67,9 @@ export default {
   created() {
     window.addEventListener("scroll", () => {
       this.bottom = this.bottomVisible();
+      if (this.bottom) {
+        this.addVideos();
+      }
     });
     this.addVideos();
   }

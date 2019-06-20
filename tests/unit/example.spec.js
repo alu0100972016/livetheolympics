@@ -1,12 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import HelloWorld from "@/components/HelloWorld.vue";
+import Toolbar from "@/components/Toolbar.vue";
 
-describe("HelloWorld.vue", () => {
-  it("renders props.msg when passed", () => {
-    const msg = "new message";
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    });
-    expect(wrapper.text()).toMatch(msg);
+describe("Toolbar.vue", () => {
+  it("is a Vue instance", () => {
+    const wrapper = shallowMount(Toolbar);
+    expect(wrapper.isVueInstance()).toBeTruthy();
   });
 });
