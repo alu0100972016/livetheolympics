@@ -42,9 +42,6 @@ export default {
     };
   },
   mounted() {
-    console.log("LOCATION: ");
-    console.log(location);
-    console.log(location.pathname);
     firebaseDB
       .collection("sports")
       .orderBy("name")
