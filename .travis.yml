@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-- node
+  - node
 script:
   - npm install
+  - npm run build
   - sonar-scanner
 addons:
   sonarcloud:
