@@ -4,7 +4,7 @@
     @bottom="addVideos"
     :offset="20"
     style="max-height: 80vh; overflow-y: scroll;"
-    v-scroll-lock="true"
+    v-body-scroll-lock="true"
   >
     <v-container align-content-center>
       <v-layout justify-space-around row wrap>
