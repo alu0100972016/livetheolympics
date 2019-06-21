@@ -1,20 +1,28 @@
 <template>
-  <v-container align-content-center>
-    <v-layout justify-space-around row wrap>
-      <v-flex pa-1 xs12 sm6 v-for="video in videos" :key="video.id">
-        <v-card flat class="pa-1 text-xs-center">
-          <iframe
-            :aspect-ratio="16 / 9"
-            id="player"
-            type="text/html"
-            :src="video.src"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-infinite-scroll
+    :loading="loading"
+    @bottom="addVideos"
+    :offset="20"
+    style="max-height: 80vh; overflow-y: scroll;"
+    v-scroll-lock="true"
+  >
+    <v-container align-content-center>
+      <v-layout justify-space-around row wrap>
+        <v-flex pa-1 xs12 sm6 v-for="video in videos" :key="video.id">
+          <v-card flat class="pa-1 text-xs-center">
+            <iframe
+              :aspect-ratio="16 / 9"
+              id="player"
+              type="text/html"
+              :src="video.src"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </v-infinite-scroll>
 </template>
 
 <script>
@@ -22,7 +30,7 @@ export default {
   data() {
     return {
       videos: [],
-      bottom: false,
+      loading: false,
       pageToken: ""
     };
   },
@@ -43,35 +51,18 @@ export default {
         }
       });
     },
-
-    bottomVisible() {
-      const scrollY = window.scrollY;
-      const visible = document.documentElement.clientHeight;
-      const pageHeight = document.documentElement.scrollHeight;
-      const bottomOfPage = visible + scrollY >= pageHeight;
-      return bottomOfPage || pageHeight <= visible;
-    },
     addVideos() {
-      if (this.bottomVisible()) {
-        this.getVideos().then(videos => {
-          this.videos.push(...videos);
-        });
-      }
+      this.loading = true;
+      this.getVideos().then(videos => {
+        this.videos.push(...videos);
+        this.loading = false;
+      });
     }
   },
   mounted() {
     this.getVideos().then(videos => {
       this.videos.push(...videos);
     });
-  },
-  created() {
-    window.addEventListener("scroll", () => {
-      this.bottom = this.bottomVisible();
-      if (this.bottom) {
-        this.addVideos();
-      }
-    });
-    this.addVideos();
   }
 };
 </script>
