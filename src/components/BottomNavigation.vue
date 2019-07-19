@@ -12,7 +12,7 @@
       </v-btn>
 
       <v-btn to="/sports" color="blue-grey darken-3" flat value="sports">
-        <span>Sports</span>
+        <span>Games</span>
         <v-icon>directions_run</v-icon>
       </v-btn>
     </v-bottom-nav>
